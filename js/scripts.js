@@ -39,10 +39,9 @@ function setGameElements() {
         finalEnd.style.display = 'none';
       break;
     case 'ended':
-        setGameElements();
         newGameElem.style.display = 'block';
         newGameBtn.innerText = 'Jeszcze raz';
-        finalEnd.style.display = 'block';
+//        finalEnd.style.display = 'block';
     case 'notStarted':
         finalEnd.style.display = 'none';
     default:
@@ -131,17 +130,17 @@ function setGamePoints() {
 
 
 function finalResult () {
+
   if (computer.score == '10') {
     gameState = 'ended';
-//    setGameElements();
     finalEnd.innerHTML = 'The Winner is Computer!';
-//    finalEnd.style.display = 'block';
   } else if (player.score == '10') {
     gameState = 'ended';
-//    setGameElements();
     finalEnd.innerHTML = 'The WINNER is ' + player.name +'!';
-//    finalEnd.style.display = 'block';
   }
+
+  setGameElements();
+  finalEnd.style.display = 'block';
 
   console.log(gameState);
   console.log(player.score);
